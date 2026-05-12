@@ -1,0 +1,5 @@
+*.pdf
+ML_activity
+.venv
+Notes
+__pycache__
