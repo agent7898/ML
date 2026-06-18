@@ -6,20 +6,18 @@ from sklearn.metrics import accuracy_score, classification_report, confusion_mat
 
 data = fetch_olivetti_faces(shuffle=True, random_state=42)
 
-
 X = data.images.reshape((data.images.shape[0], -1))  
 y = data.target                                       
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-
 nb_classifier = GaussianNB()
 nb_classifier.fit(X_train, y_train)
 
-
 y_pred = nb_classifier.predict(X_test)
 accuracy = accuracy_score(y_test, y_pred)
-print(f"Naive Bayes Classifier Accuracy: {accuracy*100:.2f}%\n")
+
+print(f"Naive Bayes Classifier Accuracy: {accuracy*100:.2f}%\n")
 print("Classification Report:\n", classification_report(y_test, y_pred, zero_division=0))
 print("Confusion Matrix:\n", confusion_matrix(y_test, y_pred))
 

@@ -5,9 +5,8 @@ from sklearn.preprocessing import PolynomialFeatures
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
 
-
 auto_mpg = pd.read_csv("https://raw.githubusercontent.com/mwaskom/seaborn-data/master/mpg.csv")
-auto_mpg.dropna(inplace=True)  # Remove missing values
+auto_mpg.dropna(inplace=True)  
 
 auto_mpg = auto_mpg[auto_mpg['horsepower'] != '?']
 
@@ -25,7 +24,7 @@ poly_reg.fit(X_train_poly, y_train)
 y_pred_poly = poly_reg.predict(X_test_poly)
 
 mse=mean_squared_error(y_test, y_pred_poly)
-print (mse)
+print (f"mse: {mse}")
 
 plt.scatter(X_test, y_test, color="blue", label="Actual Data", alpha=0.5)
 plt.scatter(X_test, y_pred_poly, color="red", label="Predicted Data", alpha=0.5)
@@ -34,3 +33,4 @@ plt.ylabel("MPG")
 plt.legend()
 plt.title("Polynomial Regression on Auto MPG Dataset")
 plt.savefig("poly.png")
+plt.close()

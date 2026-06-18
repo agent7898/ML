@@ -11,7 +11,6 @@ def locally_weighted_regression(x, X, y, tau):
     W = np.diag(weights)
     X_transpose_W = X.T @ W
     theta = np.linalg.pinv(X_transpose_W @ X) @ X_transpose_W @ y
-    #print(theta)
     return x @ theta
 
 np.random.seed(42)
