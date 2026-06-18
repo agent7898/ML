@@ -1,6 +1,0 @@
-.vscode
-lab*/*.png
-lab*/*.pdf
-lab*/*.csv
-myenv
-.gitignore
